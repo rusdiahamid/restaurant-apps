@@ -1,23 +1,32 @@
-const menuToggle = document.querySelector(".menu-toggle input");
-const nav = document.querySelector("nav ul");
+import { async } from "regenerator-runtime";
+import data from '../data/DATA.json'
 
-menuToggle.addEventListener("click", function () {
-    nav.classList.toggle("slide");
-});
+const main = () => {
+    console.log(data.restaurants);
 
-window.onscroll = function () {
-    var target = document.getElementById("home");
+    const menuToggle = document.querySelector(".menu-toggle input");
+    const nav = document.querySelector("nav ul");
 
-    var height = window.innerHeight;
+    menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("slide");
+    });
 
-    var scrollTop =
-        window.pageYOffset !== undefined
-            ? window.pageYOffset
-            : (document.documentElement || document.body.parentNode || document.body)
-                .scrollTop;
+    window.onscroll = function () {
+        var target = document.getElementById("home");
 
-    // Change this if you want it to fade faster
-    height = height / 2;
+        var height = window.innerHeight;
 
-    target.style.opacity = (height - scrollTop) / height;
-};
+        var scrollTop =
+            window.pageYOffset !== undefined
+                ? window.pageYOffset
+                : (document.documentElement || document.body.parentNode || document.body)
+                    .scrollTop;
+
+        // Change this if you want it to fade faster
+        height = height / 2;
+
+        target.style.opacity = (height - scrollTop) / height;
+    };
+}
+
+export default main;
