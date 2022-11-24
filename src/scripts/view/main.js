@@ -1,32 +1,29 @@
-import { async } from "regenerator-runtime";
-import data from '../data/DATA.json'
+import data from '../data/DATA.json';
+import '../component/restaurant-list.js'
 
 const main = () => {
-    console.log(data.restaurants);
+    const menuToggle = document.querySelector('.menu-toggle input');
+    const nav = document.querySelector('nav ul');
 
-    const menuToggle = document.querySelector(".menu-toggle input");
-    const nav = document.querySelector("nav ul");
-
-    menuToggle.addEventListener("click", function () {
-        nav.classList.toggle("slide");
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('slide');
     });
 
-    window.onscroll = function () {
-        var target = document.getElementById("home");
+    const restoListElement = document.querySelector('restaurant-list');
+    restoListElement.restaurants = data.restaurants;
 
-        var height = window.innerHeight;
+    // window.onscroll = () => {
+    //     const target = document.getElementById('home');
 
-        var scrollTop =
-            window.pageYOffset !== undefined
-                ? window.pageYOffset
-                : (document.documentElement || document.body.parentNode || document.body)
-                    .scrollTop;
+    //     let height = window.innerHeight;
 
-        // Change this if you want it to fade faster
-        height = height / 2;
+    //     const scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-        target.style.opacity = (height - scrollTop) / height;
-    };
-}
+    //     // Change this if you want it to fade faster
+    //     height = height / 2;
+
+    //     target.style.opacity = (height - scrollTop) / height;
+    // };
+};
 
 export default main;
