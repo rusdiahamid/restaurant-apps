@@ -32,14 +32,14 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
   position: relative;
   font-size: large;
+  padding: 0;
 }
 .header__title {
   color: var(--light);
   text-decoration: none;
-  font-size: larger;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem;
 }
@@ -98,12 +98,11 @@ nav-bar nav ul li a:hover {
 hero-section {
   display: flex;
   align-items: center;
-  min-height: 350px;
+  min-height: 400px;
   width: 100%;
   background-image: url('../public/images/heros/hero-image_4.jpg');
   background-size: cover;
   background-position: center;
-  background-color: green;
 }
 
 .hero__inner {
