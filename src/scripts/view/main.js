@@ -2,11 +2,22 @@ import data from '../data/DATA.json';
 import '../component/restaurant-list.js'
 
 const main = () => {
-    const menuToggle = document.querySelector('.menu-toggle input');
-    const nav = document.querySelector('nav ul');
+    const menu = document.querySelector('#menu');
+    // const hero = document.querySelector('.hero');
+    const main = document.querySelector('main');
+    const drawer = document.querySelector('nav-bar');
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('slide');
+    menu.addEventListener('click', function (event) {
+        drawer.classList.toggle('open');
+        event.stopPropagation();
+    });
+
+    // hero.addEventListener('click', function () {
+    //     drawer.classList.remove('open');
+    // });
+
+    main.addEventListener('click', function () {
+        drawer.classList.remove('open');
     });
 
     const restoListElement = document.querySelector('restaurant-list');

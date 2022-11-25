@@ -1,40 +1,48 @@
-@media screen and (max-width: 1024px) {
-  nav ul {
-    width: 50%;
+@media screen and (min-width: 768px) {
+  header {
+    position: static;
   }
-  #home .home-kata {
-    padding-left: 30px;
+  #menu {
+    display: none;
   }
-  #home .banner-image {
-    max-width: 100%;
-    margin: auto;
+  nav-bar {
+    margin-left: auto;
+    background-color: transparent;
     display: flex;
+    position: static;
+    padding: 0;
+    width: fit-content;
+  }
+  nav-bar nav ul {
+    display: flex;
+  }
+
+  restaurant-list {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+  }
+  .restaurant__thumbnail {
+    height: 200px;
   }
 }
 
-@media screen and (max-width: 576px) {
-  nav ul {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    width: 100%;
-    height: 60vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--light);
-    z-index: 1;
-    transform: translateY(-100%);
-    transition: all 1s;
-    opacity: 0;
+@media screen and (min-width: 1024px) {
+  header {
+    padding: 1rem 4rem;
+  }
+  main {
+    max-width: 1200px;
+  }
+  .hero__inner {
+    padding-left: 9rem;
   }
 
-  .menu-toggle {
-    display: flex;
+  restaurant-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-
-  nav ul.slide {
-    transform: translateY(0);
-    opacity: 1;
+  .restaurant__info {
+    padding: 1rem 1.25rem;
   }
 }

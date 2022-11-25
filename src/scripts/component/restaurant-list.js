@@ -7,7 +7,6 @@ class RestaurantList extends HTMLElement {
     }
 
     render() {
-        console.log(this._restaurants)
         this.innerHTML = '';
         this._restaurants.forEach(restaurant => {
             const restaurantItem = document.createElement('restaurant-item');
