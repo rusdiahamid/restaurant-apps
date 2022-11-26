@@ -7,7 +7,7 @@ class NavBar extends HTMLElement {
     this.innerHTML = `
         <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#">Favorit</a></li>
           <li><a href="https://github.com/rusdiahamid">About Us</a></li>
         </ul>
