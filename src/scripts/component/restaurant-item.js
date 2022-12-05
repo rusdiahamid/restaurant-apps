@@ -7,7 +7,7 @@ class RestauranItem extends HTMLElement {
     render() {
         this.innerHTML = `
         <figure class="restaurant__image">
-            <img class="restaurant__thumbnail" src="${this._restaurant.pictureId}" alt="Gambar Restoran ${this._restaurant.name}">
+            <img class="restaurant__thumbnail" src="${this._restaurant.pictureId}" alt="Restoran ${this._restaurant.name}">
             <span class="restaurant__city">${this._restaurant.city}</span>   
         </figure>
         <div class="restaurant__info">
