@@ -2,7 +2,7 @@
   header {
     position: static;
   }
-  #menu {
+  #hamburgerButton {
     display: none;
   }
   nav-bar {

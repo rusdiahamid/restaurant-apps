@@ -5,7 +5,7 @@ class NavBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <nav>
+        <nav id="navigationDrawer">
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="#">Favorit</a></li>

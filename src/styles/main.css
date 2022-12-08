@@ -43,7 +43,7 @@ header {
   font-weight: bold;
   padding: 1rem;
 }
-#menu {
+#hamburgerButton {
   color: var(--light);
   background-color: transparent;
   border: var(--light);
@@ -91,6 +91,7 @@ nav-bar nav ul li a:hover {
 .open {
   display: flex;
 }
+
 .skip-link:focus {
   top: 9px;
 }

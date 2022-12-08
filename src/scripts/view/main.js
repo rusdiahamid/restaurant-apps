@@ -2,9 +2,9 @@ import data from '../data/DATA.json';
 import '../component/restaurant-list';
 
 const main = () => {
-  const menu = document.querySelector('#menu');
+  const menu = document.querySelector('#hamburgerButton');
   const body = document.querySelector('body');
-  const main = document.querySelector('main');
+  const mainContent = document.querySelector('main');
   const drawer = document.querySelector('nav-bar');
 
   menu.addEventListener('click', (event) => {
@@ -16,7 +16,7 @@ const main = () => {
     drawer.classList.remove('open');
   });
 
-  main.addEventListener('click', () => {
+  mainContent.addEventListener('click', () => {
     drawer.classList.remove('open');
   });
 
