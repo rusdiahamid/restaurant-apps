@@ -1,11 +1,11 @@
 class RestauranItem extends HTMLElement {
-    set restaurant(restaurant) {
-        this._restaurant = restaurant;
-        this.render();
-    }
+  set restaurant(restaurant) {
+    this._restaurant = restaurant;
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <figure class="restaurant__image">
             <img class="restaurant__thumbnail" src="${this._restaurant.pictureId}" alt="Restoran ${this._restaurant.name}">
             <span class="restaurant__city">${this._restaurant.city}</span>   
@@ -15,8 +15,8 @@ class RestauranItem extends HTMLElement {
             <h2 class="restaurant__name"><a href="#">${this._restaurant.name}</a></h2>
             <p class="restaurant__description">${this._restaurant.description}</p>
         </div>
-        `
-    }
+        `;
+  }
 }
 
 customElements.define('restaurant-item', RestauranItem);

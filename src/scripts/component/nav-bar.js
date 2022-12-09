@@ -8,7 +8,7 @@ class NavBar extends HTMLElement {
         <nav id="navigationDrawer">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="#">Favorit</a></li>
+          <li><a href="#/favorit">Favorit</a></li>
           <li><a href="https://github.com/rusdiahamid" target="_blank" rel="noreferrer">About Us</a></li>
         </ul>
       </nav>
