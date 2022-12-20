@@ -25,24 +25,47 @@
   .restaurant__thumbnail {
     height: 200px;
   }
+
+  .restaurant_image {
+    height: 500px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   header {
     padding: 0.25rem 4rem;
   }
-  main {
-    max-width: 1200px;
-  }
+
   .hero__inner {
     padding-left: 9rem;
   }
 
+  
+
   restaurant-list {
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1200px;
   }
   .restaurant__info {
     padding: 1rem 1.25rem;
+  }
+
+  #restaurant {
+    display: grid;
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .identity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0.5rem;
+  }
+
+  .restaurant_name {
+    margin: 0;
   }
 }

@@ -55,7 +55,7 @@ header {
 
 nav-bar {
   position: absolute;
-  background-color: var(--dark);
+  background-color: var(--secondary);
   padding: 1rem;
   right: 1rem;
   margin-top: 2px;
@@ -63,6 +63,10 @@ nav-bar {
   border-radius: 0.5rem;
   display: none;
   width: 200px;
+}
+
+nav{
+  width: 100%;
 }
 nav-bar nav ul {
   display: block;
@@ -126,6 +130,7 @@ hero-section {
 
 main {
   width: 100%;
+  min-height: 76vh;
   margin: 0 auto;
 }
 
@@ -134,6 +139,11 @@ main {
   text-align: center;
   color: var(--light);
   font-size: 24px;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
 }
 
 restaurant-list {
@@ -185,6 +195,7 @@ restaurant-item {
   font-size: 16px;
   margin: 0.7rem 0;
   transition: 0.3s opacity;
+  color: var(--light);
 }
 
 .restaurant__name a {
@@ -205,6 +216,12 @@ restaurant-item {
   font-size: 14px;
   font-weight: lighter;
   margin: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3; 
+  -webkit-box-orient: vertical;
 }
 
 footer {
@@ -213,4 +230,107 @@ footer {
   color: #f0ebce;
   background-color: var(--secondary);
   margin-top: 2rem;
+}
+
+/* Detail Page */
+
+.restaurant_image {
+  object-fit: cover;
+  object-position: center;
+  height: 220px;
+  width: 100%;
+}
+
+
+.identity {
+  padding: 1rem;
+  color: var(--light);
+}
+
+.restaurant_name {
+  font-size: 1.5rem;
+  color: var(--light);
+  margin: 1rem 0;
+}
+
+.restaurant_name span {
+  font-weight: lighter;
+  opacity: 80%;
+}
+
+.restaurant_info {
+line-height: 1.5;
+margin-bottom: 0.5rem;
+}
+
+.restaurant_description {
+  line-height: 1.5;
+}
+
+.menu {
+  background-color: var(--primary);
+  padding: .5rem 1rem;
+  color: var(--light);
+  border-radius: 0.5rem;
+  margin: 0.3rem;
+}
+.menu_title {
+  text-align: center;
+}
+
+.menu_item {
+  line-height: 1.65;
+  font-size: 1.2rem;
+}
+
+.foods {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.drinks {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.customer_reviews {
+  margin-top: 2rem;
+}
+.customer_reviews_title {
+  text-align: center;
+  padding: 1rem 0;
+  background: var(--light);
+  color: var(--dark);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.reviews_container{
+  background: var(--light);
+  color: var(--dark);
+  padding: 1rem;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+
+.review{
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #395144;
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+
+.review h4 {
+  color: var(--primary);
+}
+
+.review p {
+  line-height: 1.65;
+}
+
+.review small {
+  color: var(--secondary);
 }
