@@ -6,7 +6,9 @@
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "serve": "http-server dist",
     "test": "karma start",
+    "build-serve": "npm run build && npm run serve",
     "lint": "eslint ./src"
   },
   "keywords": [],
@@ -24,6 +26,7 @@
     "favicons": "^7.0.2",
     "favicons-webpack-plugin": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",
     "karma": "^5.2.3",
@@ -37,9 +40,11 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-webpack-plugin": "^6.5.4"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "workbox-window": "^6.5.4"
   }
 }

@@ -4,6 +4,7 @@ import './component/hero-section';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './view/app';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   button: document.querySelector('#hamburgerButton'),
@@ -17,4 +18,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });
