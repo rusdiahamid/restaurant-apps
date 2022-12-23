@@ -1,8 +1,8 @@
 {
-  "id": "restaurant-app-lite",
+  "id": "hunger-app-lite",
   "start_url": "./index.html",
-  "name": "Restaurant App Lite",
-  "short_name": "Restaurant Lite",
+  "name": "HungerApp Lite",
+  "short_name": "HungerApp",
   "description": "Find Restaurant",
   "display": "standalone",
   "background_color": "#FFFFFF",

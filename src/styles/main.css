@@ -29,13 +29,17 @@ body {
   padding: 8px;
   z-index: 9999;
 }
-header {
+.app-bar {
+  background: var(--dark);
   display: flex;
   align-items: center;
-  position: relative;
   font-size: large;
   padding: 0;
-}
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
 .header__title {
   color: var(--light);
   text-decoration: none;
