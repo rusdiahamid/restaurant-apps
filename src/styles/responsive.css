@@ -30,9 +30,21 @@
     height: 500px;
   }
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
   .reviews {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }
 

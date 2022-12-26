@@ -26,6 +26,7 @@
     "eslint-plugin-import": "^2.26.0",
     "favicons": "^7.0.2",
     "favicons-webpack-plugin": "^6.0.0",
+    "feather-icons": "^4.29.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",

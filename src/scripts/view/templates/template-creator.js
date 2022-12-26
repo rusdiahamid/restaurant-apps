@@ -1,4 +1,5 @@
 import CONFIG from '../../globals/config';
+
 const feather = require('feather-icons');
 
 const createRestaurantItemTemplate = (restaurant) => `
@@ -22,26 +23,28 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
   <div class="restaurant_info">
   <h1 class="restaurant_name">${restaurant.name} <span>- ${restaurant.city}</span></h1>
-  <p>Category : ${restaurant.categories.map((category) => `<span class="restaurant__category">${category.name}</span>`).join(', ')} </p>
-  <p>Address : ${restaurant.address}</p>
-  <p>Rating : ${restaurant.rating}</p>
+  <p>${feather.icons.book.toSvg({ class: 'info__icons' })} Category : ${restaurant.categories.map((category) => `<span class="restaurant__category"> ${category.name}</span>`).join(', ')} </p>
+  <p>${feather.icons['map-pin'].toSvg({ class: 'info__icons' })} Address : ${restaurant.address}</p>
+  <p>${feather.icons.star.toSvg({ class: 'info__icons' })} Rating : ${restaurant.rating}</p>
   <p class="restaurant_description">${restaurant.description}</p>
   </div>
 </div>
 
   <div class="menu">
     <h2 class="menu_title">Menu</h2>
-    <div class="foods">
-    <h3>Foods</h3>
-    <div class="menu_item">${restaurant.menus.foods.map((food) => `${food.name}`).join(', ')}
-    </div>
-    </div>
+    <div class="menu__container">
+      <div class="foods">
+        <h3>${feather.icons.database.toSvg({ class: 'info__icons' })} Foods</h3>
+        <div class="menu_item">${restaurant.menus.foods.map((food) => `${food.name}`).join(' • ')}
+        </div>
+      </div>
 
-    <div class="drinks">
-    <h3>Drinks</h3>
-    <div class="menu_item">
-     ${restaurant.menus.drinks.map((drink) => `${drink.name}`).join(', ')}
-     </div>
+      <div class="drinks">
+        <h3>${feather.icons.coffee.toSvg({ class: 'info__icons' })} Drinks</h3>
+        <div class="menu_item">
+        ${restaurant.menus.drinks.map((drink) => `${drink.name}`).join(' • ')}
+        </div>
+    </div>
     </div>
   </div>
 
@@ -59,7 +62,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>  
 
   <div class="add_review">
-  <h2 class="">Add Reviews</h2>
+  <h2>Add Reviews</h2>
     <div class="form__group">
     <label for="inputName">Name</label>
     <input type="text" id="inputName" />
