@@ -22,6 +22,20 @@ const Detail = {
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant,
     });
+
+    const inputName = document.querySelector('#inputName');
+    const inputReview = document.querySelector('#inputReview');
+    const btnSubmit = document.querySelector('#btnSubmit');
+
+    btnSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dataInput = {
+        id: url.id,
+        name: inputName.value,
+        review: inputReview.value,
+      };
+      RestaurantSource.addReview(dataInput);
+    });
   },
 };
 

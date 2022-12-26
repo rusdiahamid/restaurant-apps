@@ -29,6 +29,11 @@
   .restaurant_image {
     height: 500px;
   }
+
+  .reviews {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
 }
 
 @media screen and (min-width: 1024px) {

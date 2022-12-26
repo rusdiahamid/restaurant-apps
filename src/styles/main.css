@@ -6,6 +6,27 @@
 }
 
 * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 3px solid var(--secondary);
+}
+
+
+* {
   margin: 0;
   padding: 0;
 }
@@ -297,9 +318,8 @@ margin-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.customer_reviews {
-  margin-top: 2rem;
-}
+
+
 .customer_reviews_title {
   text-align: center;
   padding: 1rem 0;
@@ -314,7 +334,7 @@ margin-bottom: 0.5rem;
   color: var(--dark);
   padding: 1rem;
   max-height: 500px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 
@@ -356,6 +376,63 @@ margin-bottom: 0.5rem;
   font-size: 18px;
   color: white;
   cursor: pointer;
+}
+
+.add_review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--secondary);
+  color: var(--light);
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem 0;
+ 
+}
+
+.form__group label {
+  font-size: 1rem;
+  line-height: 1.5;
+  
+}
+
+.form__group #inputName {
+  padding: 0.4rem;
+  border: 0;
+  color: var(--dark);
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+}
+
+.form__group #inputReview {
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+.btn__submit {
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  margin: 1rem 0;
+  padding: .5rem;
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.btn__submit:hover {
+  background-color: var(--light);
+  border: 1px solid var(--lightnpm );
+  color: var(--dark);
+  cursor: pointer;
+  font-weight: 500;
 }
 
 footer {

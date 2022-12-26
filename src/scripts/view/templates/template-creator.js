@@ -1,9 +1,10 @@
 import CONFIG from '../../globals/config';
+const feather = require('feather-icons');
 
 const createRestaurantItemTemplate = (restaurant) => `
 <restaurant-item>
 <figure class="restaurant__image">
-<img class="restaurant__thumbnail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name}">
+<img class="restaurant__thumbnail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name}" loading="lazy">
 <span class="restaurant__city">${restaurant.city}</span>   
 </figure>
 <div class="restaurant__info">
@@ -43,6 +44,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
      </div>
     </div>
   </div>
+
+  <div class="reviews">
   <div class="customer_reviews">
   <h2 class="customer_reviews_title">Customer Reviews</h2>
   <div class="reviews_container">
@@ -53,7 +56,21 @@ const createRestaurantDetailTemplate = (restaurant) => `
       <small>${review.date}</small>
     </div>`).join('')}
    </div>
-   </div>
+  </div>  
+
+  <div class="add_review">
+  <h2 class="">Add Reviews</h2>
+    <div class="form__group">
+    <label for="inputName">Name</label>
+    <input type="text" id="inputName" />
+    </div>
+    <div class="form__group">
+    <label for="inputReview">Review</label>
+    <textarea type="text" id="inputReview"></textarea>
+    </div>
+    <button id="btnSubmit" class="btn__submit">Submit</button>
+  </div>
+  </div>
 `;
 
 const createLikeButtonTemplate = () => `
