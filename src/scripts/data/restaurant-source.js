@@ -22,10 +22,7 @@ class RestaurantSource {
         },
         body: JSON.stringify(review),
       };
-      const response = await fetch(API_ENDPOINT.REVIEW, options);
-      const responseJson = await response.json();
-      // eslint-disable-next-line no-alert
-      window.alert(`${responseJson.message} posted your review!`);
+      await fetch(API_ENDPOINT.REVIEW, options);
     } catch (error) {
       console.log(error);
     }

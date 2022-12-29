@@ -44,7 +44,14 @@
   .reviews {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  }
+
+  .add_review {
+    border-top-left-radius: 0;
+  }
+
+  .customer_reviews_title{
+    border-top-right-radius: 0;
   }
 }
 

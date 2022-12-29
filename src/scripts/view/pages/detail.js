@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
@@ -29,12 +30,33 @@ const Detail = {
 
     btnSubmit.addEventListener('click', (e) => {
       e.preventDefault();
-      const dataInput = {
-        id: url.id,
-        name: inputName.value,
-        review: inputReview.value,
-      };
-      RestaurantSource.addReview(dataInput);
+      if (inputName.value === '' || inputReview.value === '') {
+        Swal.fire({
+          toast: true,
+          position: 'top',
+          icon: 'error',
+          title: 'name and review cannot be empty!',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else {
+        const dataInput = {
+          id: url.id,
+          name: inputName.value,
+          review: inputReview.value,
+        };
+        RestaurantSource.addReview(dataInput);
+        inputName.value = '';
+        inputReview.value = '';
+        Swal.fire({
+          toast: true,
+          position: 'top',
+          icon: 'success',
+          title: 'Your review has been successfully added.',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
     });
   },
 };

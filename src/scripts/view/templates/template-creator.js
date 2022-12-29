@@ -11,7 +11,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 <div class="restaurant__info">
 <span class="restaurant__rating" aria-label="Restaurant Rating ${restaurant.rating}">⭐ <strong>${restaurant.rating}</strong> / 5.0</span>
 <h2 class="restaurant__name"><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h2>
-<p class="restaurant__description">${restaurant.description}</p>
+<p class="restaurant__description">${restaurant.description}</p><a class="see__detail" href="#/detail/${restaurant.id}">See details</a>
 </div>
 </restaurant-item>
 `;
@@ -62,7 +62,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>  
 
   <div class="add_review">
-  <h2>Add Reviews</h2>
+  <h2>Add Review</h2>
     <div class="form__group">
     <label for="inputName">Name</label>
     <input type="text" id="inputName" />
@@ -78,13 +78,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createLikeButtonTemplate = () => `
   <button aria-label="like this movie" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+     ${feather.icons.bookmark.toSvg({ strok: '#f0ebce' })}
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
   <button aria-label="unlike this movie" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+  ${feather.icons.bookmark.toSvg({ fill: '#f0ebce', stroke: '#f0ebce' })}
   </button>
 `;
 

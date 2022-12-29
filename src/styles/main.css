@@ -249,6 +249,17 @@ restaurant-item {
   -webkit-box-orient: vertical;
 }
 
+.see__detail {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.see__detail:hover {
+  font-weight: bold;
+  color: var(--light);
+}
+
 footer {
   padding: 2rem;
   text-align: center;
@@ -325,7 +336,7 @@ margin-bottom: 0.5rem;
   background-color: var(--primary);
   padding: 1rem;
   border-radius: 10px;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 .foods h3 {
@@ -339,7 +350,7 @@ margin-bottom: 0.5rem;
   background-color: var(--primary);
   padding: 1rem;
   border-radius: 10px;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 .drinks h3 {
@@ -396,12 +407,14 @@ margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #db0000;
+  background-color: var(--primary);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  
   
   position: fixed;
   bottom: 16px;
   right: 16px;
-  border-radius: 50%;
+  border-radius: 10px;
   border: 0;
   
   font-size: 18px;
@@ -418,6 +431,10 @@ margin-bottom: 0.5rem;
   padding: 1rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.add_review h2 {
+  text-align: center;
 }
 
 .form__group {
