@@ -17,10 +17,12 @@
     display: flex;
   }
 
-  restaurant-list {
+  #restaurants {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 16px;
+    justify-content: center;
+    align-content: center;
   }
   .restaurant__thumbnail {
     height: 200px;
@@ -60,15 +62,15 @@
     padding: 0.25rem 4rem;
   }
 
+
   .hero__inner {
     padding-left: 9rem;
   }
 
   
 
-  restaurant-list {
+  #restaurants {
     display: grid;
-    justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     max-width: 1200px;
   }

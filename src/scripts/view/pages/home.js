@@ -5,16 +5,16 @@ const Home = {
   async render() {
     return `
     <hero-section></hero-section>
-    <h1 class="main__title">Explore Restaurant</h1>
     <div class="content">
-    <restaurant-list></restaurant-list>
+      <h1 class="main__title">Explore Restaurant</h1>
+      <div id="restaurants"></div>
     </div>
     `;
   },
 
   async afterRender() {
     const restaurants = await RestaurantSource.listResto();
-    const restaurantContainer = document.querySelector('restaurant-list');
+    const restaurantContainer = document.querySelector('#restaurants');
     restaurants.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });

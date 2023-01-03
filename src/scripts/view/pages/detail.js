@@ -7,6 +7,7 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 const Detail = {
   async render() {
     return `
+    <div id="loading"></div>
     <div id="restaurant"></div>
     <div id="likeButtonContainer"></div>
     `;

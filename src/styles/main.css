@@ -22,7 +22,7 @@
 *::-webkit-scrollbar-thumb {
   background-color: var(--secondary);
   border-radius: 14px;
-  border: 3px solid var(--secondary);
+  border: 3px solid var(--primary);
 }
 
 
@@ -155,7 +155,7 @@ hero-section {
 
 main {
   width: 100%;
-  min-height: 76vh;
+  min-height: 78vh;
   margin: 0 auto;
 }
 
@@ -171,13 +171,13 @@ main {
   justify-content: center;
 }
 
-restaurant-list {
+#restaurants {
   padding: 1rem;
   display: grid;
   grid-row-gap: 16px;
 }
 
-restaurant-item {
+.restaurant-item {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
@@ -484,6 +484,46 @@ margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
+.empty__favorit{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty__image {
+  width: 50%;
+}
+
+.empty__favorit p {
+  color: var(--light);
+  margin-top: 1rem;
+  font-weight: 200;
+}
+
+
 footer {
   padding: 16px;
+}
+
+#loading {
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid #9c41f2;
+  border-radius: 100%;
+  margin: auto;
+  visibility: hidden;
+  animation: spin 1s infinite linear;
+}
+#loading.display {
+  visibility: visible;
+}
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
 }

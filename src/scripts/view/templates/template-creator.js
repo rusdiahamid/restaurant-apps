@@ -3,7 +3,7 @@ import CONFIG from '../../globals/config';
 const feather = require('feather-icons');
 
 const createRestaurantItemTemplate = (restaurant) => `
-<restaurant-item>
+<div class="restaurant-item">
 <figure class="restaurant__image">
 <img class="restaurant__thumbnail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name}" loading="lazy">
 <span class="restaurant__city">${restaurant.city}</span>   
@@ -13,7 +13,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 <h2 class="restaurant__name"><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h2>
 <p class="restaurant__description">${restaurant.description}</p><a class="see__detail" href="#/detail/${restaurant.id}">See details</a>
 </div>
-</restaurant-item>
+</div>
 `;
 
 const createRestaurantDetailTemplate = (restaurant) => `
@@ -88,9 +88,17 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const emptyFavoritTemplate = () => `
+<div class="empty__favorit">
+  <img class="empty__image" src="../images/empty.svg" alt="empty" />
+  <p>No Data</p>
+</div>
+`;
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  emptyFavoritTemplate,
 };
