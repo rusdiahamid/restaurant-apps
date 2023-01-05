@@ -253,6 +253,9 @@ main {
   font-size: 14px;
   text-decoration: none;
   color: var(--primary);
+  padding: 1rem 0;
+  text-align: center;
+  display: block;
 }
 
 .see__detail:hover {
@@ -451,7 +454,7 @@ margin-bottom: 0.5rem;
 }
 
 .form__group #inputName {
-  padding: 0.4rem;
+  padding: 1rem;
   border: 0;
   color: var(--dark);
   border-radius: 5px;
@@ -471,7 +474,7 @@ margin-bottom: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--primary);
   margin: 1rem 0;
-  padding: .5rem;
+  padding: 1rem;
   background-color: var(--primary);
   color: var(--light);
 }
