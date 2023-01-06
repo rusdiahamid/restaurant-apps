@@ -1,5 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
-import { createRestaurantItemTemplate, spinner } from '../templates/template-creator';
+import { createRestaurantItemTemplate, offlineTemplate, spinner } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -24,13 +24,18 @@ const Home = {
       loadingEl.style.display = 'none';
     }
 
-    showSpinner();
-    const restaurants = await RestaurantSource.listResto();
-    const restaurantContainer = document.querySelector('#restaurants');
-    restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-    });
-    hideSpinner();
+    try {
+      showSpinner();
+      const restaurants = await RestaurantSource.listResto();
+      const restaurantContainer = document.querySelector('#restaurants');
+      restaurants.forEach((restaurant) => {
+        restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      });
+      hideSpinner();
+    } catch (err) {
+      const restaurantContainer = document.querySelector('#restaurants');
+      restaurantContainer.innerHTML = offlineTemplate();
+    }
   },
 };
 

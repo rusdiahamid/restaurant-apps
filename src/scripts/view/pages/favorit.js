@@ -1,5 +1,7 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
-import { createRestaurantItemTemplate, emptyFavoritTemplate, spinner } from '../templates/template-creator';
+import {
+  createRestaurantItemTemplate, emptyFavoritTemplate, offlineTemplate, spinner,
+} from '../templates/template-creator';
 
 const Favorit = {
   async render() {
@@ -24,19 +26,25 @@ const Favorit = {
       loadingEl.style.display = 'none';
     }
 
-    showSpinner();
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
-    const restaurantContainer = document.querySelector('#restaurants');
-    const blankContainer = document.querySelector('#blank_page');
+    try {
+      showSpinner();
+      const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+      const restaurantContainer = document.querySelector('#restaurants');
+      const blankContainer = document.querySelector('#blank_page');
 
-    if (restaurants.length === 0) {
-      blankContainer.innerHTML = emptyFavoritTemplate();
-    } else {
-      restaurants.forEach((restaurant) => {
-        restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-      });
+      if (restaurants.length === 0) {
+        blankContainer.innerHTML = emptyFavoritTemplate();
+      } else {
+        restaurants.forEach((restaurant) => {
+          restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+        });
+      }
+      hideSpinner();
+    } catch (err) {
+      const blankContainer = document.querySelector('#blank_page');
+      blankContainer.innerHTML = offlineTemplate();
+      hideSpinner();
     }
-    hideSpinner();
   },
 };
 

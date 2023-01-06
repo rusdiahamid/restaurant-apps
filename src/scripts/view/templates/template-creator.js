@@ -105,6 +105,13 @@ const emptyFavoritTemplate = () => `
 </div>
 `;
 
+const offlineTemplate = () => `
+<div class="offline__container">
+  <img class="offline__image" src="../images/server-down.svg" alt="server down" />
+  <p>No Internet Connection.</p>
+</div>
+`;
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
@@ -112,4 +119,5 @@ export {
   createLikedButtonTemplate,
   emptyFavoritTemplate,
   spinner,
+  offlineTemplate,
 };
