@@ -1,9 +1,10 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
-import { createRestaurantItemTemplate, emptyFavoritTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate, emptyFavoritTemplate, spinner } from '../templates/template-creator';
 
 const Favorit = {
   async render() {
     return `
+    ${spinner()}
     <div class="content">
       <h1 class="main__title">My Favorit Restaurant</h1>
       <div id="restaurants"></div>
@@ -13,6 +14,17 @@ const Favorit = {
   },
 
   async afterRender() {
+    const loadingEl = document.getElementById('animated-loader');
+
+    function showSpinner() {
+      loadingEl.classList.add('display');
+    }
+
+    function hideSpinner() {
+      loadingEl.style.display = 'none';
+    }
+
+    showSpinner();
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurants');
     const blankContainer = document.querySelector('#blank_page');
@@ -24,6 +36,7 @@ const Favorit = {
         restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
       });
     }
+    hideSpinner();
   },
 };
 

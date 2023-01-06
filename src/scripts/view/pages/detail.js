@@ -1,25 +1,36 @@
 import Swal from 'sweetalert2';
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
-import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import { createRestaurantDetailTemplate, spinner } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const Detail = {
   async render() {
     return `
-    <div id="loading"></div>
+    ${spinner()}
     <div id="restaurant"></div>
     <div id="likeButtonContainer"></div>
     `;
   },
 
   async afterRender() {
+    const loadingEl = document.getElementById('animated-loader');
+
+    function showSpinner() {
+      loadingEl.classList.add('display');
+    }
+
+    function hideSpinner() {
+      loadingEl.style.display = 'none';
+    }
+
+    showSpinner();
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.detailResto(url.id);
     const restaurantContainer = document.querySelector('#restaurant');
 
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-
+    hideSpinner();
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant,
