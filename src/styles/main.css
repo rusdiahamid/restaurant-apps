@@ -156,6 +156,7 @@ hero-section {
 main {
   width: 100%;
   margin: 0 auto;
+  min-height: 80vh;
 }
 
 .main__title {
@@ -168,7 +169,6 @@ main {
 .content {
   display: grid;
   justify-content: center;
-  min-height: 100%;
 }
 
 #restaurants {

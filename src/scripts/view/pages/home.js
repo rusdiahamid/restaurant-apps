@@ -9,6 +9,7 @@ const Home = {
       ${spinner()}
       <h1 class="main__title">Explore Restaurant</h1>
       <div id="restaurants"></div>
+      <div id="blank_page"></div>
     </div>
     `;
   },
@@ -33,8 +34,9 @@ const Home = {
       });
       hideSpinner();
     } catch (err) {
-      const restaurantContainer = document.querySelector('#restaurants');
-      restaurantContainer.innerHTML = offlineTemplate();
+      const blankContainer = document.querySelector('#blank_page');
+      blankContainer.innerHTML = offlineTemplate();
+      hideSpinner();
     }
   },
 };
