@@ -63,7 +63,7 @@ describe('Liking a Restaurant', () => {
 
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
-    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual({ id: 1 });
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
 
     FavoriteRestaurantIdb.deleteResto(1);
   });
