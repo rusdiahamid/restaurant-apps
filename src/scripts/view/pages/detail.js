@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestaurantDetailTemplate, offlineTemplate, spinner } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 
 const Detail = {
   async render() {
@@ -32,7 +32,7 @@ const Detail = {
 
       restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
       hideSpinner();
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
         restaurant,
       });

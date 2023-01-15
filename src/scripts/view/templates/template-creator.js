@@ -86,13 +86,13 @@ const spinner = () => `
       <div class="loading" id="loading"></div>
     </div>
 `;
-const createLikeButtonTemplate = () => `
+const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
      ${feather.icons.bookmark.toSvg({ strok: '#f0ebce' })}
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
+const createUnikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
   ${feather.icons.bookmark.toSvg({ fill: '#f0ebce', stroke: '#f0ebce' })}
   </button>
@@ -115,8 +115,8 @@ const offlineTemplate = () => `
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createLikeRestaurantButtonTemplate,
+  createUnikeRestaurantButtonTemplate,
   emptyFavoritTemplate,
   spinner,
   offlineTemplate,
