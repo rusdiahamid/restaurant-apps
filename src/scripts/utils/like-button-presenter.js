@@ -1,11 +1,11 @@
 import Swal from 'sweetalert2';
-import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb';
 import { createLikeRestaurantButtonTemplate, createUnikeRestaurantButtonTemplate } from '../view/templates/template-creator';
 
 const LikeButtonPresenter = {
-  async init({ likeButtonContainer, restaurant }) {
+  async init({ likeButtonContainer, favoriteRestaurants, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
     this._restaurant = restaurant;
+    this._favoriteRestaurants = favoriteRestaurants;
 
     await this._renderButton();
   },
@@ -21,7 +21,7 @@ const LikeButtonPresenter = {
   },
 
   async _isRestaurantExist(id) {
-    const restaurant = await FavoriteRestaurantIdb.getResto(id);
+    const restaurant = await this._favoriteRestaurants.getResto(id);
     return !!restaurant;
   },
 
@@ -30,7 +30,7 @@ const LikeButtonPresenter = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.putResto(this._restaurant);
+      await this._favoriteRestaurants.putResto(this._restaurant);
       this._renderButton();
       Swal.fire({
         toast: true,
@@ -48,7 +48,7 @@ const LikeButtonPresenter = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.deleteResto(this._restaurant.id);
+      await this._favoriteRestaurants.deleteResto(this._restaurant.id);
       this._renderButton();
       Swal.fire({
         toast: true,

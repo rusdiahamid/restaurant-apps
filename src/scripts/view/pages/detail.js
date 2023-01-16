@@ -3,6 +3,7 @@ import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestaurantDetailTemplate, offlineTemplate, spinner } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 
 const Detail = {
   async render() {
@@ -34,7 +35,7 @@ const Detail = {
       hideSpinner();
       LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
-        restaurant,
+        favoriteRestaurants: FavoriteRestaurantIdb, restaurant,
       });
 
       const inputName = document.querySelector('#inputName');
