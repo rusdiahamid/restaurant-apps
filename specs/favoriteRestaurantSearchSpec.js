@@ -45,4 +45,27 @@ describe('Searching restaurant', () => {
     expect(FavoriteRestaurantIdb.searchRestaurants)
       .toHaveBeenCalledWith('film a');
   });
+
+  it('should show the found restaurant', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(1);
+
+    presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+  });
+
+  it('should show the name of the found restaurants', () => {
+    presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }]);
+    expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
+      .toEqual('Satu');
+
+    presenter._showFoundRestaurants(
+      [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]
+    );
+
+    const restaurantNames = document.querySelectorAll('.restaurant__name');
+
+    expect(restaurantNames.item(0).textContent).toEqual('Satu');
+    expect(restaurantNames.item(1).textContent).toEqual('Dua');
+  });
 });

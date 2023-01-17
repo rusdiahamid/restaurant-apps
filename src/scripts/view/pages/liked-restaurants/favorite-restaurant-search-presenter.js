@@ -16,6 +16,18 @@ class FavoriteRestaurantSearchPresenter {
     this._favoriteRestaurants.searchRestaurants(this._latestQuery);
   }
 
+  _showFoundRestaurants(restaurants) {
+    const html = restaurants.reduce(
+      (carry, restaurant) => carry.concat(`
+      <li class="restaurant"></li>
+      <span class="restaurant__name">${restaurant.name || '-'}</span>
+      `
+      ),
+      '',
+    );
+    document.querySelector('.restaurants').innerHTML = html;
+  }
+
   get latestQuery() {
     return this._latestQuery;
   }
