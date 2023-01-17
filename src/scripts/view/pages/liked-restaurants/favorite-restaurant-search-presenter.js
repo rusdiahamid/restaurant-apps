@@ -11,21 +11,27 @@ class FavoriteRestaurantSearchPresenter {
     });
   }
 
-  _searchRestaurants(latestQuery) {
+  async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery;
-    this._favoriteRestaurants.searchRestaurants(this._latestQuery);
+
+    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
     const html = restaurants.reduce(
       (carry, restaurant) => carry.concat(`
-      <li class="restaurant"></li>
+      <li class="restaurant">
       <span class="restaurant__name">${restaurant.name || '-'}</span>
-      `
-      ),
+      </li>
+      `),
       '',
     );
     document.querySelector('.restaurants').innerHTML = html;
+
+    document.getElementById('restaurant-search-container')
+      .dispatchEvent(new Event('restaurants:searched:updated'));
   }
 
   get latestQuery() {

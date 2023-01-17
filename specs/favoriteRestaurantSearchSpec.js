@@ -6,7 +6,7 @@ describe('Searching restaurant', () => {
 
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
-    queryElement.value = 'film a';
+    queryElement.value = query;
     queryElement.dispatchEvent(new Event('change'));
   }
 
@@ -33,17 +33,17 @@ describe('Searching restaurant', () => {
   });
 
   it('should be able to capture the query typed by the user', () => {
-    searchRestaurants('film a');
+    searchRestaurants('resto a');
 
     expect(presenter.latestQuery)
-      .toEqual('film a');
+      .toEqual('resto a');
   });
 
   it('should ask the model to search for liked restaurant', () => {
-    searchRestaurants('film a');
+    searchRestaurants('resto a');
 
     expect(FavoriteRestaurantIdb.searchRestaurants)
-      .toHaveBeenCalledWith('film a');
+      .toHaveBeenCalledWith('resto a');
   });
 
   it('should show the found restaurant', () => {
@@ -67,5 +67,47 @@ describe('Searching restaurant', () => {
 
     expect(restaurantNames.item(0).textContent).toEqual('Satu');
     expect(restaurantNames.item(1).textContent).toEqual('Dua');
+  });
+
+  it('should show - for found restaurant without name', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+    expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
+      .toEqual('-');
+  });
+
+  it('should show the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+
+        expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+        done();
+      });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('resto a').and.returnValues([
+      { id: 111, name: 'resto abc' },
+      { id: 222, name: 'ada juga resto abcde' },
+      { id: 333, namae: 'ini boleh ada resto a' },
+    ]);
+
+    searchRestaurants('resto a');
+  });
+
+  it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+      const restaurantNames = document.querySelectorAll('.restaurant__name');
+      expect(restaurantNames.item(0).textContent).toEqual('resto abc');
+      expect(restaurantNames.item(1).textContent).toEqual('ada juga resto abcde');
+      expect(restaurantNames.item(2).textContent).toEqual('ini juga boleh resto a');
+
+      done();
+    });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('resto a').and.returnValues([
+      { id: 111, name: 'resto abc' },
+      { id: 222, name: 'ada juga resto abcde' },
+      { id: 333, name: 'ini juga boleh resto a' },
+    ]);
+
+    searchRestaurants('resto a');
   });
 });
