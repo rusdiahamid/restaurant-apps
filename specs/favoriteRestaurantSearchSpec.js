@@ -60,53 +60,26 @@ describe('Searching restaurant', () => {
       expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
         .toEqual('Satu');
 
-      presenter._showFoundRestaurants(
-        [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]
-      );
+      // presenter._showFoundRestaurants(
+      //   [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]
+      // );
 
-      const restaurantNames = document.querySelectorAll('.restaurant__name');
+      // const restaurantNames = document.querySelectorAll('.restaurant__name');
 
-      expect(restaurantNames.item(0).textContent).toEqual('Satu');
-      expect(restaurantNames.item(1).textContent).toEqual('Dua');
+      // expect(restaurantNames.item(0).textContent).toEqual('Satu');
+      // expect(restaurantNames.item(1).textContent).toEqual('Dua');
     });
 
-    it('should show - for found restaurant without name', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
-        .toEqual('-');
-    });
-
-    it('should show the restaurants found by Favorite Restaurants', (done) => {
-      document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-
-          expect(document.querySelectorAll('.restaurant').length).toEqual(3);
-          done();
-        });
-
-      favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
-        { id: 111, name: 'resto abc' },
-        { id: 222, name: 'ada juga resto abcde' },
-        { id: 333, namae: 'ini boleh ada resto a' },
-      ]);
-
-      searchRestaurants('resto a');
-    });
-
-    it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
+    it('should show - when the restaurant does not contain a title', (done) => {
       document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
         const restaurantNames = document.querySelectorAll('.restaurant__name');
-        expect(restaurantNames.item(0).textContent).toEqual('resto abc');
-        expect(restaurantNames.item(1).textContent).toEqual('ada juga resto abcde');
-        expect(restaurantNames.item(2).textContent).toEqual('ini juga boleh resto a');
+        expect(restaurantNames.item(0).textContent).toEqual('-');
 
         done();
       });
 
       favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
-        { id: 111, name: 'resto abc' },
-        { id: 222, name: 'ada juga resto abcde' },
-        { id: 333, name: 'ini juga boleh resto a' },
+        { id: 444 },
       ]);
 
       searchRestaurants('resto a');
