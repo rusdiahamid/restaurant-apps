@@ -49,10 +49,10 @@ describe('Searching restaurant', () => {
 
     it('should show the found restaurant', () => {
       presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(1);
+      expect(document.querySelectorAll('.restaurant-item').length).toEqual(1);
 
       presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+      expect(document.querySelectorAll('.restaurant-item').length).toEqual(2);
     });
 
     it('should show the name of the found restaurants', () => {
@@ -60,14 +60,6 @@ describe('Searching restaurant', () => {
       expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
         .toEqual('Satu');
 
-      // presenter._showFoundRestaurants(
-      //   [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]
-      // );
-
-      // const restaurantNames = document.querySelectorAll('.restaurant__name');
-
-      // expect(restaurantNames.item(0).textContent).toEqual('Satu');
-      // expect(restaurantNames.item(1).textContent).toEqual('Dua');
     });
 
     it('should show - when the restaurant does not contain a title', (done) => {
@@ -104,7 +96,7 @@ describe('Searching restaurant', () => {
     it('should show the empty message', (done) => {
       document.getElementById('restaurant-search-container')
         .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurants__not__found').length).toEqual(1);
+          expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
           done();
         });
 
