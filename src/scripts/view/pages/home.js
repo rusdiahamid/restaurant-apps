@@ -6,8 +6,8 @@ const Home = {
     return `
     <div class="hero-section">
       <picture>
-      <source media="(max-width: 600px)" srcset="./images/heros/hero-image-small.jpg" />
-      <img src="./images/heros/hero-image-large.jpg" alt="Hunger App Hero Image" />
+      <source media="(max-width: 600px)" srcset="./images/hero-image-small.jpg" />
+      <img src="./images/hero-image-large.jpg" alt="Hunger App Hero Image" />
       </picture>
       <div class="hero__inner">
       <h1 class="hero__title">Your stomach feeling hungry?</h1>
