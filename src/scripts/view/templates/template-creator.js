@@ -22,9 +22,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <img class="restaurant_image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name}">
   </div>
   <div class="restaurant_info">
-  <h1 class="restaurant_name">${restaurant.name}</h1><span> - ${restaurant.city}</span>
+  <h1 class="restaurant_name">${restaurant.name}</h1>
   <p>${feather.icons.book.toSvg({ class: 'info__icons' })} Category : ${restaurant.categories.map((category) => `<span class="restaurant__category"> ${category.name}</span>`).join(', ')} </p>
-  <p>${feather.icons['map-pin'].toSvg({ class: 'info__icons' })} Address : ${restaurant.address}</p>
+  <p>${feather.icons['map-pin'].toSvg({ class: 'info__icons' })} Address : ${restaurant.address} <span>, ${restaurant.city}</span></p>
   <p>${feather.icons.star.toSvg({ class: 'info__icons' })} Rating : ${restaurant.rating}</p>
   <p class="restaurant_description">${restaurant.description}</p>
   </div>

@@ -483,6 +483,30 @@ footer {
   font-weight: 500;
 }
 
+.search__restaurants {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 1rem;
+  position: relative;
+}
+
+.search__icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.search__restaurants input {
+  border-radius: 5px;
+  font-size: large;
+  padding: 0.7rem 2.5rem;
+}
+
+.content__heading {
+  color: #f0ebce;
+  text-align: center;
+}
+
 .empty__favorit {
   width: 100%;
   display: flex;

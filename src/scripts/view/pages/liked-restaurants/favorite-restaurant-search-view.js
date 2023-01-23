@@ -1,10 +1,14 @@
 import { createRestaurantItemTemplate } from '../../templates/template-creator';
+const feather = require('feather-icons');
 
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
     <div class="content">
-      <input id="query" type="text" />
+      <div class="search__restaurants">
+      <input id="query" type="text" placeholder="Search Restaurants..."/>
+      <i class="search__icon">${feather.icons.search.toSvg()}</i>
+      </div>
       <h2 class="content__heading">Your Liked Restaurant</h2>
       <div id="restaurants" class="restaurants">
       </div>
