@@ -4,7 +4,16 @@ import { createRestaurantItemTemplate, offlineTemplate, spinner } from '../templ
 const Home = {
   async render() {
     return `
-    <hero-section></hero-section>
+    <div class="hero-section">
+      <picture>
+      <source media="(max-width: 600px)" srcset="./images/heros/hero-image-small.jpg" />
+      <img src="./images/heros/hero-image-large.jpg" alt="Hunger App Hero Image" />
+      </picture>
+      <div class="hero__inner">
+      <h1 class="hero__title">Your stomach feeling hungry?</h1>
+      <p class="hero__tagline">let's explore the restaurant with us</p>
+      </div>
+    </div>
     <div class="content">
       ${spinner()}
       <h1 class="main__title">Explore Restaurant</h1>
