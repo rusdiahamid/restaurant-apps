@@ -39,7 +39,6 @@ describe('showing all favorite restaurant', () => {
         view,
         favoriteRestaurants,
       });
-      done();
     })
   });
 
@@ -69,7 +68,6 @@ describe('showing all favorite restaurant', () => {
         view,
         favoriteRestaurants,
       });
-      done();
     });
   });
 });
