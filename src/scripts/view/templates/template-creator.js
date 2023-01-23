@@ -1,11 +1,13 @@
 import CONFIG from '../../globals/config';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const feather = require('feather-icons');
 
 const createRestaurantItemTemplate = (restaurant) => `
 <div class="restaurant-item">
 <figure class="restaurant__image">
-<img class="restaurant__thumbnail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name || '-'}" loading="lazy">
+<img class="restaurant__thumbnail lazyload" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name || '-'}" loading="lazy">
 <span class="restaurant__city">${restaurant.city || '-'}</span>   
 </figure>
 <div class="restaurant__info">
