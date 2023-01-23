@@ -214,9 +214,9 @@ main {
   position: absolute;
   left: 0;
   top: 15px;
-  background-color: var(--primary);
+  background-color: var(--light);
   padding: 1rem 2rem;
-  color: var(--light);
+  color: var(--dark);
   font-weight: 500;
   font-size: medium;
 }
@@ -268,7 +268,7 @@ main {
 .see__detail {
   font-size: 14px;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--light);
   padding: 1rem 0;
   text-align: center;
   display: block;
@@ -276,7 +276,7 @@ main {
 
 .see__detail:hover {
   font-weight: bold;
-  color: var(--light);
+  color: var(--primary);
 }
 
 footer {

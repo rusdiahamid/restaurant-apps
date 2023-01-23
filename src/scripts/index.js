@@ -1,6 +1,5 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import './component/nav-bar';
-import './component/hero-section';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './view/app';

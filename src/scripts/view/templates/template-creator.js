@@ -102,14 +102,12 @@ const createUnikeRestaurantButtonTemplate = () => `
 
 const emptyFavoritTemplate = () => `
 <div class="empty__favorit">
-  <img class="empty__image" src="../images/empty.svg" alt="empty" />
   <p>No Data</p>
 </div>
 `;
 
 const offlineTemplate = () => `
 <div class="offline__container">
-  <img class="offline__image" src="../images/server-down.svg" alt="server down" />
   <p>No Internet Connection.</p>
 </div>
 `;
