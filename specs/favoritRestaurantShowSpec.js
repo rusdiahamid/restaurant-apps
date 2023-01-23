@@ -14,7 +14,7 @@ describe('showing all favorite restaurant', () => {
     renderTemplate();
   })
 
-  describe('when no movies have been liked', () => {
+  describe('when no restaurants have been liked', () => {
     it('should ask for the favorite restuarants', () => {
       const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
 
@@ -26,7 +26,7 @@ describe('showing all favorite restaurant', () => {
       expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
     });
 
-    it('Should show the information that no movies have been liked', (done) => {
+    it('Should show the information that no restaurants have been liked', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
         done();
@@ -39,6 +39,7 @@ describe('showing all favorite restaurant', () => {
         view,
         favoriteRestaurants,
       });
+      done();
     })
   });
 
@@ -68,6 +69,7 @@ describe('showing all favorite restaurant', () => {
         view,
         favoriteRestaurants,
       });
+      done();
     });
   });
 });

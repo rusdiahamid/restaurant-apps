@@ -6,10 +6,10 @@ const createRestaurantItemTemplate = (restaurant) => `
 <div class="restaurant-item">
 <figure class="restaurant__image">
 <img class="restaurant__thumbnail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name || '-'}" loading="lazy">
-<span class="restaurant__city">${restaurant.city}</span>   
+<span class="restaurant__city">${restaurant.city || '-'}</span>   
 </figure>
 <div class="restaurant__info">
-<span class="restaurant__rating" aria-label="Restaurant Rating ${restaurant.rating}">⭐ <strong>${restaurant.rating}</strong> / 5.0</span>
+<span class="restaurant__rating" aria-label="Restaurant Rating ${restaurant.rating || '-'}">⭐ <strong>${restaurant.rating || '-'}</strong> / 5.0</span>
 <h2 class="restaurant__name"><a href="#/detail/${restaurant.id}">${restaurant.name || '-'}</a></h2>
 <p class="restaurant__description">${restaurant.description || '-'}</p><a class="see__detail" href="#/detail/${restaurant.id}">See details</a>
 </div>
@@ -22,7 +22,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <img class="restaurant_image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name}">
   </div>
   <div class="restaurant_info">
-  <h1 class="restaurant_name">${restaurant.name} <span>- ${restaurant.city}</span></h1>
+  <h1 class="restaurant_name">${restaurant.name}</h1><span> - ${restaurant.city}</span>
   <p>${feather.icons.book.toSvg({ class: 'info__icons' })} Category : ${restaurant.categories.map((category) => `<span class="restaurant__category"> ${category.name}</span>`).join(', ')} </p>
   <p>${feather.icons['map-pin'].toSvg({ class: 'info__icons' })} Address : ${restaurant.address}</p>
   <p>${feather.icons.star.toSvg({ class: 'info__icons' })} Rating : ${restaurant.rating}</p>

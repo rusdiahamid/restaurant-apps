@@ -7,7 +7,7 @@ class FavoriteRestaurantsShowPresenter {
   }
 
   async _showFavoriteRestaurants() {
-    const restaurants = this._favoriteRestaurants.getAllRestaurants();
+    const restaurants = await this._favoriteRestaurants.getAllRestaurants();
     this._displayRestaurants(restaurants);
   }
 

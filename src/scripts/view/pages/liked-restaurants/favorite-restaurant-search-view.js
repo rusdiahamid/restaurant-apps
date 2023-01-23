@@ -4,14 +4,12 @@ class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
     <div class="content">
-      <input id="query" type="text">
+      <input id="query" type="text" />
       <h2 class="content__heading">Your Liked Restaurant</h2>
-      <div id="restaurant-search-container">
-        <div id="restaurants" class="restaurants">
-        </div>
+      <div id="restaurants" class="restaurants">
       </div>
     </div>
-    `;
+      `;
   }
 
   runWhenUserIsSearching(callback) {
@@ -21,9 +19,13 @@ class FavoriteRestaurantSearchView {
   }
 
   showRestaurants(restaurants) {
+    this.showFavoriteRestaurants(restaurants);
+  }
+
+  showFavoriteRestaurants(restaurants = []) {
     let html;
 
-    if (restaurants.length > 0) {
+    if (restaurants.length) {
       html = restaurants.reduce(
         (carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)),
         '',
@@ -33,27 +35,27 @@ class FavoriteRestaurantSearchView {
     }
 
 
-    document.querySelector('.restaurants').innerHTML = html;
+    document.getElementById('restaurants').innerHTML = html;
 
-    document.getElementById('restaurant-search-container')
+    document.getElementById('restaurants')
       .dispatchEvent(new Event('restaurants:searched:updated'));
   }
 
-  showFavoriteRestaurants(restaurants) {
-    let html;
-    if (restaurants.length) {
-      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
-    } else {
-      html = this._getEmptyRestaurantTemplate();
-    }
+  // showFavoriteRestaurants(restaurants) {
+  //   let html;
+  //   if (restaurants.length) {
+  //     html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
+  //   } else {
+  //     html = this._getEmptyRestaurantTemplate();
+  //   }
 
-    document.getElementById('restaurants').innerHTML = html;
+  //   document.getElementById('restaurants').innerHTML = html;
 
-    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
-  }
+  //   document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
+  // }
 
   _getEmptyRestaurantTemplate() {
-    return '<div class="restaurant-item__not__found">Tidak ada Restaurant untuk ditampilkan</div>'
+    return '<div class="restaurant-item__not__found restaurants__not__found">Tidak ada Restaurant untuk ditampilkan</div>'
   }
 
 }
