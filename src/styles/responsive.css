@@ -1,40 +1,95 @@
-@media screen and (max-width: 1024px) {
-  nav ul {
-    width: 50%;
+@media screen and (min-width: 768px) {
+  header {
+    position: static;
   }
-  #home .home-kata {
-    padding-left: 30px;
+  #hamburgerButton {
+    display: none;
   }
-  #home .banner-image {
-    max-width: 100%;
-    margin: auto;
+  nav-bar {
+    margin-left: auto;
+    background-color: transparent;
     display: flex;
+    position: static;
+    padding: 0;
+    width: fit-content;
+  }
+  nav-bar nav ul {
+    display: flex;
+  }
+
+  .hero__inner {
+    text-align: left;
+    padding-left: 9rem;
+  }
+
+  #restaurants {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+    justify-content: center;
+    align-content: center;
+  }
+  .restaurant__thumbnail {
+    height: 200px;
+  }
+
+  .restaurant_image {
+    height: 500px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .add_review {
+    border-top-left-radius: 0;
+  }
+
+  .customer_reviews_title {
+    border-top-right-radius: 0;
   }
 }
 
-@media screen and (max-width: 576px) {
-  nav ul {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    width: 100%;
-    height: 60vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--light);
-    z-index: 1;
-    transform: translateY(-100%);
-    transition: all 1s;
-    opacity: 0;
+@media screen and (min-width: 1024px) {
+  header {
+    padding: 0.25rem 4rem;
   }
 
-  .menu-toggle {
-    display: flex;
+  #restaurants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1200px;
+  }
+  .restaurant__info {
+    padding: 1rem 1.25rem;
   }
 
-  nav ul.slide {
-    transform: translateY(0);
-    opacity: 1;
+  #restaurant {
+    display: grid;
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .identity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0.5rem;
+  }
+
+  .restaurant_name {
+    margin: 0;
   }
 }

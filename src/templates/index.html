@@ -3,30 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="a website that will help you find a restaurant near you to satisfy your hunger" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="manifest" href="./app.webmanifest" />
+    <meta name="theme-color" content="#395144" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
     <title>HangerApps</title>
   </head>
   <body>
-    <!-- header -->
-    <header>
-      <nav>
-        <div class="logo">
-          <h1>HangerApps</h1>
-        </div>
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="#">Favorit</a></li>
-          <li><a href="#profile">About Us</a></li>
-        </ul>
-
-        <div class="menu-toggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
+    <a href="#mainContent" class="skip-link">Menuju ke konten</a>
+    <header class="app-bar">
+      <a href="#" class="header__title">HungerApps</a>
+      <button id="hamburgerButton" aria-label="menu">☰</button>
+      <nav-bar></nav-bar>
     </header>
-    <!-- akhir dari header -->
+    <main id="mainContent" tabindex="0"></main>
+
+    <footer>
+      <p>Made with ❤️ from Karawang @ 2022 - HungerApps</p>
+    </footer>
   </body>
 </html>
