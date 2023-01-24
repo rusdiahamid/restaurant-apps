@@ -11,7 +11,6 @@
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
     "build-image": "node sharp.js",
-    "build-serve": "npm run build && npm run serve",
     "lint": "eslint ./src"
   },
   "keywords": [],
