@@ -26,6 +26,7 @@
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -36,10 +37,8 @@ html {
 
 body {
   font-family: ui-sans-serif, 'Roboto', sans-serif;
-  font-size: 18px;
   overflow-x: hidden;
   background-color: var(--dark);
-  min-height: 100vh;
 }
 .skip-link {
   position: absolute;
@@ -114,7 +113,6 @@ nav-bar nav ul li a {
 
 nav-bar nav ul li a:hover {
   color: var(--primary);
-  font-weight: 700;
 }
 
 .open {
@@ -127,7 +125,6 @@ nav-bar nav ul li a:hover {
 
 .hero-section {
   align-items: center;
-  min-height: 400px;
   height: 400px;
   width: 100%;
   position: relative;
@@ -176,10 +173,10 @@ main {
 }
 
 .main__title {
-  margin: 2rem 1rem;
+  margin-top: 2%;
+  font-size: 2rem;
   text-align: center;
   color: var(--light);
-  font-size: 24px;
 }
 
 .content {
@@ -188,6 +185,7 @@ main {
 }
 
 #restaurants {
+  margin-top: 2%;
   padding: 1rem;
   display: grid;
   grid-row-gap: 16px;
@@ -559,7 +557,8 @@ footer {
 }
 
 footer {
-  padding: 16px;
+  margin-top: 2%;
+  padding: 12px;
 }
 
 #animated-loader {
