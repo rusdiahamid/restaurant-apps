@@ -15,6 +15,7 @@
   }
   nav-bar nav ul {
     display: flex;
+    justify-content: space-around;
   }
 
   .hero__inner {

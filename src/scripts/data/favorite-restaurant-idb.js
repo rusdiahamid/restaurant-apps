@@ -33,7 +33,6 @@ const FavoriteRestaurantIdb = {
   async deleteResto(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
-
   async searchRestaurants(query) {
     return (await this.getAllRestaurants()).filter((restaurant) => {
       const loweredCaseRestaurantName = (restaurant.name || '-').toLowerCase();
@@ -45,7 +44,6 @@ const FavoriteRestaurantIdb = {
       return jammedRestaurantName.indexOf(jammedQuery) !== -1;
     });
   },
-
 };
 
 export default FavoriteRestaurantIdb;

@@ -40,7 +40,7 @@ describe('Searching restaurant', () => {
         .toEqual('resto a');
     });
 
-    it('should ask the model to search for liked restaurant', () => {
+    it('should ask the model to search for restaurants', () => {
       searchRestaurants('resto a');
 
       expect(favoriteRestaurants.searchRestaurants)
@@ -62,7 +62,7 @@ describe('Searching restaurant', () => {
 
     });
 
-    it('should show - when the restaurant does not contain a title', (done) => {
+    it('should show - when the restaurant returned does not contain a name', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         const restaurantNames = document.querySelectorAll('.restaurant__name');
         expect(restaurantNames.item(0).textContent).toEqual('-');
@@ -71,11 +71,10 @@ describe('Searching restaurant', () => {
       });
 
       favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
-        { id: 444 },
+        { id: 2 },
       ]);
 
       searchRestaurants('resto a');
-      done();
     });
   });
 
@@ -104,7 +103,6 @@ describe('Searching restaurant', () => {
       favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([]);
 
       searchRestaurants('resto a');
-      done();
     });
 
     it('should not show any restaurant', (done) => {
@@ -114,7 +112,6 @@ describe('Searching restaurant', () => {
       });
       favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([]);
       searchRestaurants('resto a');
-      done();
     });
   });
 });
